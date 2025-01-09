@@ -1,45 +1,77 @@
+'use client'
+import React from "react";
+import SplineViewer from "../components/Animation";
 
 const Homepage = () => {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', position: 'relative', zIndex:1, marginLeft: '121px', width: "100%" ,alignItems: "flex-end", backgroundColor: '#2E2D2D' }}>
      
       <main
         style={{ 
-          backgroundColor: '#2E2D2D',
           minHeight: '100vh',
+          zIndex: 2,
           flex: 1,
-          marginLeft: '250px', // Même largeur que la navbar
+          backgroundColor: '#2E2D2D',
+          overflow: 'hidden',
           padding: '2rem',
           color: 'white',
-        }}
+          fontFamily: "roboto",
+          padding: '2rem',
+          color: 'white',
+          fontFamily: "roboto",
+          display: 'flex',
+          position: 'absolute',
+                  }}
       >
-        <div className="container">
+        <div className="container"
+          style={{
+            maxWidth: "100%",
+            marginRight: '150%',
+            
+          
+          }}
+        >
+          
           <h1 className="display-2 mb-4">Hi,</h1>
           <h1 className="display-2 mb-4">
-            I'm <span  style={{
-      background: "linear-gradient(90deg, #FF6B6B, #8B0000)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-    }}>Emeline</span>,
+            I'm <span style={{
+              background: "linear-gradient(90deg, #FF6B6B, #8B0000)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>Emeline</span>,
           </h1>
           <h1 className="display-2 mb-4">Web developer.</h1>
-          <p className="text-white mb-5">Fullstack developer</p>
+          <p className="text-white mb-5"
+            style={{
+              fontSize: '1.5em',
+              lineHeight: '1.5',
+              fontFamily: "roboto"
+            }}
+          >
+            Fullstack developer
+          </p>
           <button
             className="btn px-4 py-2"
             style={{
-            background: "linear-gradient(90deg, #FF6B6B, #8B0000)",
+              background: "linear-gradient(90deg, #FF6B6B, #8B0000)",
               color: 'white',
               borderRadius: '5px',
-              border:"1px solid white",
+              border: "1px solid white",
             }}
           >
             Contact Me !
           </button>
         </div>
+        
       </main>
+      <div className="container-spline"
+        style={{flex:1, width:"100%", position:"relative", left:"600px"}}>
+           <SplineViewer />
+          
+        </div>
     </div>
   );
-}
+};
 
 export default Homepage;
 

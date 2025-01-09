@@ -1,0 +1,23 @@
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px; /* Ajuste cette valeur selon la largeur que tu veux */
+    background-color: #343a40; /* Couleur sombre pour la navbar */
+  }
+  
+  .Navbar .Nav {
+    margin-top: 20px; /* Si tu veux de l'espace au-dessus des liens */
+  }
+  
+  .Navbar .Nav.Link {
+    color: white !important;
+    font-size: 18px; /* Ajuste la taille des liens */
+  }
+  
+  .Navbar .Nav.Link:hover {
+    color: #ccc !important; 
+    font-weight: bold;
+  }
+  

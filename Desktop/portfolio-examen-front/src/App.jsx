@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Homepage from "../pages/Homepage"
 import NavBar from "../components/NavBar"
+import Apropos from "../Pages/Apropos"
 
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
 <NavBar></NavBar>
 <Routes>
   <Route path="/" element={<Homepage />} />
+  <Route path="/Apropos" element={<Apropos/>} />
+
 </Routes>
 </BrowserRouter>
   </>

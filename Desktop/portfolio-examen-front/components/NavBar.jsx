@@ -4,8 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import githubIcon from "../assets/github.png";
 import linkedinIcon from "../assets/linkedin.png";
 import mailIcon from "../assets/mail.png";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+  const navigate = useNavigate();
+
   return (
     <Navbar
       style={{ 
@@ -65,7 +68,7 @@ function NavBar() {
         }}
       >
         <Nav.Link
-              href="#About Me"
+              href="#About Me" onClick={() => navigate('/Apropos')}
               className="text-center position-relative py-2"
               style={{
                 color: "white", 

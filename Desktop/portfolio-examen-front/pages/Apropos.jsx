@@ -1,79 +1,76 @@
 import { useEffect, useState } from "react";
 import AproposService from "../Services/AproposService";
+import "../styles/aPropos.css";
+import QualityCards from "../components/QualityCards";
 
-const aboutMe = () => {
-const [photo, setPhoto] = useState ([]);
-const [icons, setIcons] = useState([]);
+const AboutMe = () => {
+  const [presentation, setPresentation] = useState(null);
+  const [icons, setIcons] = useState([]);
+  const [error, setError] = useState(null);
 
-
-const fetchPhoto = async () => {
+  const fetchData = async () => {
     try {
       const response = await AproposService.getAllPresentation();
-      setPhoto(response.data);
-      console.log(response.data);
-      const iconsArray = JSON.parse(response.data.Icone);
-      setIcons(iconsArray);
-      console.log(iconsArray);
+      setPresentation(response.data[0]);
+
+      const iconsData = await AproposService.getAllIcons();
+      setIcons(iconsData.data);
     } catch (error) {
-      console.error('There has been a problem with your fetch operation:', error);
+      console.error("Erreur lors de la récupération des données :", error);
+      setError("Impossible de charger les données. Réessayez plus tard.");
     }
-}
+  };
 
-    useEffect(() => {
-        fetchPhoto();
-      }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
+  // Liste des mots à cibler pour le style
+  const targetWords = ["Emeline", "React.js", "HTML", "CSS", "Node.js", "MySQL", "nouvelles opportunités"];
 
-      return (
-        <>
-          <main
-            style={{
-              position: "absolute",
-              top: "0",
-              left: "121px",
-              width: "100vw",
-              backgroundColor: "#2E2D2D",
-              display: "flex",
-              flexDirection: "column",
-              padding: "2rem",
-              color: "white",
-              fontFamily: "Roboto",
+  // Fonction pour ajouter un style spécial aux mots ciblés
+  const highlightText = (text) => {
+    const regex = new RegExp(`\\b(${targetWords.join("|")})\\b`, "gi");
+    return text.replace(regex, (match) => `<span class="gradient-text">${match}</span>`);
+  };
+
+  if (error) {
+    return <p className="error-message">{error}</p>;
+  }
+
+  if (!presentation) {
+    return <p className="loading-message">Chargement des données...</p>;
+  }
+
+  const qualities = presentation.Qualité ? presentation.Qualité.split(", ") : [];
+  const qualityIcons = qualities.map((quality, index) => icons[index]);
+
+  return (
+    <main className="about">
+      <h2 className="about__title">Présentation</h2>
+      <h3 className="about__subtitle">About Me</h3>
+
+      <div className="about__content">
+        <img
+          src={presentation.photo}
+          alt="Présentation personnelle"
+          className="about__image"
+        />
+        <div className="about__text-container">
+          <QualityCards qualities={qualities} icons={qualityIcons} />
+          {/* Injection sécurisée du texte avec mots stylisés */}
+          <p
+            className="about__description"
+            dangerouslySetInnerHTML={{
+              __html: highlightText(presentation.description),
             }}
-          >
-            <h1>À propos</h1>
-            <div>
-              {photo.map((image) => (
-                <div
-                  key={image.idPresentation} // Clé unique pour chaque élément
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    marginBottom: "20px",
-                  }}
-                >
-                  {/* Affichage de l'image */}
-                  <img
-                    src={image.photo} // Utilise la clé correcte pour l'image
-                    alt="Présentation"
-                    style={{ width: "50%", borderRadius: "10px" }}
-                  />
-                  {/* Affichage d'autres informations si nécessaire */}
-                  <h3>{image.Titre}</h3>
-                  <p>{image.description}</p>
-                  <p>Qualités: {image.Qualité}</p>
-                  <div> {icons.map((icon, index) => (
-                    <img key={index} src={icon} alt={`icon-${index}`} style={{ width: "50px", height: "50px" }}
-                    />
-                  ))}</div>
-                </div>
-              ))}
-            </div>
-          </main>
-        </>
-      );
-    };
+          ></p>
+        </div>
+      </div>
 
-    
- 
-export default aboutMe;
+      <button className="about__contact-button">Contact Me!</button>
+    </main>
+  );
+};
+
+export default AboutMe;

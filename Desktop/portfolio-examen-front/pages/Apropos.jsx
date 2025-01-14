@@ -7,31 +7,35 @@ const AboutMe = () => {
   const [presentation, setPresentation] = useState(null);
   const [icons, setIcons] = useState([]);
   const [error, setError] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const response = await AproposService.getAllPresentation();
-      setPresentation(response.data[0]);
-
-      const iconsData = await AproposService.getAllIcons();
-      setIcons(iconsData.data);
-    } catch (error) {
-      console.error("Erreur lors de la récupération des données :", error);
-      setError("Impossible de charger les données. Réessayez plus tard.");
-    }
-  };
+  const targetWords = ["Emeline", "React.js", "HTML", "CSS", "Node.js", "MySQL", "nouvelles opportunités"];
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await AproposService.getAllPresentation();
+        setPresentation(response.data[0]);
+
+        const iconsData = await AproposService.getAllIcons();
+        setIcons(iconsData.data);
+      } catch (err) {
+        console.error("Erreur lors de la récupération des données :", err);
+        setError("Impossible de charger les données. Réessayez plus tard.");
+      }
+    };
     fetchData();
   }, []);
 
-  // Liste des mots à cibler pour le style
-  const targetWords = ["Emeline", "React.js", "HTML", "CSS", "Node.js", "MySQL", "nouvelles opportunités"];
-
-  // Fonction pour ajouter un style spécial aux mots ciblés
   const highlightText = (text) => {
     const regex = new RegExp(`\\b(${targetWords.join("|")})\\b`, "gi");
-    return text.replace(regex, (match) => `<span class="gradient-text">${match}</span>`);
+    return text.split(regex).map((part, i) =>
+      targetWords.includes(part) ? (
+        <span key={i} className="gradient-text">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
   };
 
   if (error) {
@@ -43,7 +47,7 @@ const AboutMe = () => {
   }
 
   const qualities = presentation.Qualité ? presentation.Qualité.split(", ") : [];
-  const qualityIcons = qualities.map((quality, index) => icons[index]);
+  const qualityIcons = qualities.map((_, index) => icons[index]);
 
   return (
     <main className="about">
@@ -58,13 +62,10 @@ const AboutMe = () => {
         />
         <div className="about__text-container">
           <QualityCards qualities={qualities} icons={qualityIcons} />
-          {/* Injection sécurisée du texte avec mots stylisés */}
-          <p
-            className="about__description"
-            dangerouslySetInnerHTML={{
-              __html: highlightText(presentation.description),
-            }}
-          ></p>
+          {/* Remplace dangerouslySetInnerHTML par JSX */}
+          <p className="about__description">
+            {highlightText(presentation.description)}
+          </p>
         </div>
       </div>
 

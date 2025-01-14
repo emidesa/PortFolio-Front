@@ -5,9 +5,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 9vw;
-  width: 91vw;
   min-height: 100vh;
+  position: relative; /* Ajoute un contexte de positionnement */
 }
 
 .about__description {
@@ -133,51 +132,68 @@
   margin-top: 2rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+
+  .about {
+    width: 100%; /* Utilise toute la largeur */
+  }
+
   .about__content {
     flex-direction: column;
     align-items: center;
   }
 
   .about__image {
-    width: 50vw;
+    width: 80%;
     max-width: 300px;
   }
 
   .about__text-container {
-    align-items: center;
-    text-align: justify;
+    width: 100%;
+    padding: 0 1rem;
   }
 
   .quality-cards {
-    justify-content: center;
-  }
-
-  .about__contact-button {
-    align-items: center;
-   justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .about {
-    margin-left: 0;
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .about__image {
-    width: 50vw;
-    max-width: 200px;
+    flex-wrap: wrap;
+    justify-content: auto;
+    padding-left: 25vw;
   }
 
   .quality-card {
-    width: calc(50% - 0.25rem);
+    width: calc(50% - 1rem);
+    min-width: 140px;
+    margin-left: 0;
   }
 
   .about__contact-button {
-    align-items: center;
-    justify-content: center;
-   }
+    margin: 2rem auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .quality-card {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Styles pour les écrans plus larges */
+@media (min-width: 1024px) {
+  .about__content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .about__image {
+    width: 30vw;
+  }
+
+  .about__text-container {
+    width: 45vw;
+  }
+
+  .quality-cards {
+    margin-left: 5vw;
+  }
 }
 

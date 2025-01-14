@@ -89,16 +89,24 @@ align-items: center;  }
   /* Styles responsive */
   @media (max-width: 768px) {
     .navbar {
-      width: 15%; /* La navbar prend toute la largeur de l'écran sur les petits écrans */
-      height: 90vh;
-      position: relative; /* Le positionnement devient relatif pour le mode mobile */
-    }
+        position: fixed; /* Fixe la navbar au viewport */
+        top: 0; /* Assure qu'elle reste en haut */
+        left: 0; /* Ancrage à gauche */
+        width: 9vw; /* Largeur ajustée */
+        height: 100vh; /* Ajuste la hauteur selon les besoins */
+        z-index: 1; /* S'assure qu'elle reste au-dessus des autres éléments */
+      }
+
+    .navbar-expand .navbar__nav {
+        flex-direction: column; /* Les éléments de la navbar seront en ligne sur grand écran */
+        
+      }
 
     .navbar__nav {
         display: flex;
         flex-direction: column; /* Les éléments de la navbar seront en ligne sur petit écran */
         justify-content: center;
-        gap: 0;
+        gap: 6vh;
   
     }
   
@@ -125,6 +133,8 @@ align-items: center;  }
       justify-content: space-between;
       margin-top: 2rem;
     }
+
+    
   }
   
   /* Lorsque la navbar est en mode "expand" (sur grand écran) */

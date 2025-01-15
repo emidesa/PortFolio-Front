@@ -33,16 +33,18 @@ const SoftSkills = () => {
                 <h1 className="skills-title">Mes softSkills</h1>
                 <h1 className="skills-subtitle">Skills</h1>
 
-                <Container className="container-left">
-                    <Card>
-                        <CardHeader>
+                <div className="cards-container">
+                <Container >
+                    <Card className="container-left">
+                        <CardHeader className="card-header">
                             <div className="card-title">
-                                <h1>Développement web</h1>
+                                <p>Développement web</p>
                             </div>
                         </CardHeader>
                         <div className="Card-icon">
                             <div className="card-category">
-                                <p>Front-end</p>
+                                <h5>Front-end</h5>
+                                <br/>
                                 {frontEndSkills.length > 0 ? (
                                     frontEndSkills.map(skill => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
@@ -51,9 +53,10 @@ const SoftSkills = () => {
                                     <p>Aucune compétence trouvée pour cette catégorie</p>
                                 )}
                             </div>
-
+                            <div className="vertical-line"></div>
                             <div className="card-category">
-                                <p>Back-end</p>
+                                <h5>Back-end</h5>
+                                <br/>
                                 {backEndSkills.length > 0 ? (
                                     backEndSkills.map(skill => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
@@ -68,14 +71,15 @@ const SoftSkills = () => {
 
                 <Container className="container-right">
                     <Card>
-                        <CardHeader>
+                        <CardHeader className="card-header">
                             <div className="card-title">
-                                <h1>Outils</h1>
+                                <p>Outils de conception</p>
                             </div>
                         </CardHeader>
                         <div className="Card-icon">
                             <div className="card-category">
-                                <p>Code</p>
+                                <h5>Code</h5>
+                                <br/>
                                 {codeSkills.length > 0 ? (
                                     codeSkills.map(skill => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
@@ -84,9 +88,10 @@ const SoftSkills = () => {
                                     <p>Aucune compétence trouvée pour cette catégorie</p>
                                 )}
                             </div>
-
+                            <div className="vertical-line"></div>
                             <div className="card-category">
-                                <p>Design</p>
+                                <h5>Design</h5>
+                                <br/>
                                 {designSkills.length > 0 ? (
                                     designSkills.map(skill => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
@@ -98,6 +103,7 @@ const SoftSkills = () => {
                         </div>
                     </Card>
                 </Container>
+                </div>
             </body>
         </>
     );

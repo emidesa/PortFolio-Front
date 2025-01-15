@@ -5,7 +5,7 @@ const SkillsCards = ({ skills }) => {
 
   return (
     <div className="skills-card">
-      <Card style={{ width: '5vw' }}>
+      <Card style={{ width: '3vw', backgroundColor: 'transparent', border: 'none' }}>
         <Card.Img
           variant="top"
           src={skills.IconeTechno}
@@ -13,7 +13,7 @@ const SkillsCards = ({ skills }) => {
         />
       </Card>
       <div className="card-title-container">
-        <h5>{skills.Name}</h5>
+        {skills.Name}
       </div>
     </div>
   );

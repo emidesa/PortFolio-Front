@@ -1,34 +1,40 @@
 .body-skills {
     background-color: #2E2D2D;
     display: flex;
-    justify-content: center; /* Centre verticalement */
-    align-items: center; /* Centre horizontalement */
-    gap: 3rem; /* Espace entre les éléments */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 3rem;
+}
+
+.cards-container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15rem;
+    margin-bottom: 5vw;
+    border-radius: 5px;
+   
 }
 
 .Card-icon {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Permet de garder les catégories côte à côte */
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #E0E0E0;
+    border-radius: 0 0 25px 25px;
+
 }
 
 .card-category {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45%; /* Assure que chaque catégorie occupe moins de la moitié de la largeur */
+    width: 45%;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
 }
-
-.card-title {
-    text-align: center;
-    font-size: 0.9rem; /* Réduit la taille du titre */
-    width: 100%; /* Fait en sorte que le titre prenne la même largeur que l'image */
-    margin-top: 0.5rem;
-    flex-direction: column;
-}
-
 
 
 .card-body {
@@ -36,62 +42,99 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .skills-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem; /* Pour espacer chaque carte */
-  }
-  
-  .skills-image {
-    width: 8rem; /* Ajuster la largeur de l'image */
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    
+}
+
+.card-header {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    border-radius: 25px 25px 0 0!important;
+}
+
+.card { 
+    width: 25vw;
+    border-radius: 25px !important;  
+   
+    
+}
+
+.skills-image {
+    width: 4rem;
     height: auto;
-  }
-  
-  .card-title-container {
+    
+}
+
+.card-title-container {
     text-align: center;
     margin-top: 0.5rem;
-    font-size: 1rem; /* Ajuste la taille du titre si nécessaire */
-  }
-
+    font-size: 1rem;
+}
 
 .skills-title {
     text-align: center;
     color: white;
     font-size: 2rem;
-    margin-bottom: 1rem;
 }
 
 .skills-title::after {
-    content: ""; 
+    content: "";
     display: block;
-    width: 20%; 
-    height: 1px; 
-    background-color: white; 
+    width: 70%;
+    height: 1px;
+    background-color: white;
     margin: 1rem auto 0;
 }
 
 .skills-subtitle {
     text-align: center;
     font-size: 1.5rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
     background: linear-gradient(90deg, #FF6B6B, #8B0000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
+.card-title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 450;
+    margin-top: 2vh;
+    color: #E0E0E0 !important;
+}
 
+.vertical-line {
+    width: 2px;
+    height: 40vh;
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    margin-top: 5vh;
+}
 
 @media (max-width: 768px) {
     .body-skills {
-        flex-direction: column; /* Empile les éléments sur les petits écrans */
+        flex-direction: column;
         gap: 3rem;
     }
 
+    .cards-container { /* Update 4 */
+        flex-direction: column;
+    }
+
+    .card { /* Update 4 */
+        width: 90vw;
+    }
+
     .card-category {
-        width: 100%; /* Prend toute la largeur sur mobile */
+        width: 100%;
     }
 }
+

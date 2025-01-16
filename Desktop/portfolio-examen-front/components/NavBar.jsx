@@ -22,11 +22,11 @@ function NavBar() {
           A propos
           <div className="navbar__link-underline"></div>
         </Nav.Link>
-        <Nav.Link href="#Skills" className="navbar__link">
+        <Nav.Link href="#Skills" onClick={() => navigate('/Skills')}  className="navbar__link">
           Skills
           <div className="navbar__link-underline"></div>
         </Nav.Link>
-        <Nav.Link href="#Parcours" className="navbar__link">
+        <Nav.Link href="#Parcours"onClick={() => navigate('/Parcours')} className="navbar__link">
           Parcours
           <div className="navbar__link-underline"></div>
         </Nav.Link>

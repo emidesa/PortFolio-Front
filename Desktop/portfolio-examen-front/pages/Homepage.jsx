@@ -2,6 +2,7 @@ import React from "react";
 import Apropos from "../pages/aPropos";
 import '../styles/Homepage.css';
 import Skills from "../pages/Skills"
+import Parcours from "../pages/Parcours"
 const Homepage = () => {
   return (
     <div className="homepage">
@@ -22,6 +23,7 @@ const Homepage = () => {
       </main>
       <Apropos />
       <Skills />
+      <Parcours />
     </div>
   );
 };

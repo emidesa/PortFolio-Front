@@ -1,0 +1,148 @@
+/* src/styles/ParcoursCard.css */
+
+.parcours-page {
+    padding: 40px 20px;
+    background-color: #2D2D2D;
+    min-height: 100vh;
+}
+
+.parcours-page h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: white;
+}
+
+.parcours-page h1::after {
+    content: "";
+    display: block;
+    width: 10%;
+    height: 1px;
+    background-color: white;
+    margin: 1rem auto 0;
+}
+
+.parcours-page h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.5rem; 
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+   
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.filter-button {
+    padding: 8px 24px;
+    font-size: 1.1rem;
+    color: white;
+    background: transparent;
+    border: 2px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+}
+
+.cards-container-parcours {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux cartes de se réorganiser quand l'espace est insuffisant */
+    justify-content: flex-start; /* Distribue les cartes avec de l'espace entre elles */
+    gap: 30px;
+    
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.parcours-card {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 285px; /* Taille fixe pour chaque carte */
+    flex-grow: 0; /* Empêche la carte de se redimensionner */
+    flex-shrink: 0; /* Empêche la carte de se réduire */
+}
+
+.parcours-card:hover {
+    transform: translateY(-5px);
+}
+
+.parcours-card .card-header {
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.parcours-card .card-title {
+    color: #E17B77;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.parcours-card .card-body {
+    padding: 0 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.parcours-card .card-text {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.parcours-card .card-footer {
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    color: #E0E0E0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1200px) {
+    .cards-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .parcours-page h1 {
+        font-size: 2rem;
+    }
+
+    .parcours-page h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar"
 import Apropos from "../Pages/Apropos"
 import Skills from "../pages/Skills"
 import Parcours from "../pages/Parcours"
+import Contact from "../pages/Contact"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   <Route path="/Apropos" element={<Apropos/>} />
   <Route path="/Skills" element={<Skills/>} />
   <Route path="/Parcours" element={<Parcours/>} />
+  <Route path="/Contact" element={<Contact />} />
 
 </Routes>
 </BrowserRouter>

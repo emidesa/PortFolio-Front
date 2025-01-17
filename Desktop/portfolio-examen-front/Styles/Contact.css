@@ -1,0 +1,132 @@
+.contact-container {
+    background-color: #2D2D2D;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .contact-content {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    color: white;
+  }
+  
+  h2::after{
+    content: "";
+    display: block;
+    width: 10%;
+    height: 1px;
+    background-color: white;
+    margin: 1rem auto 0;
+  }
+  
+  .contact-title {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    margin-top: 20px;
+  }
+  
+  .button {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
+    text-align: center;
+    width: 15vw;
+    height: 20vh;
+    margin-left: 2vw;
+  }
+  
+  .button-form {
+    display: flex;
+    flex-direction: row;
+  }
+  .button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
+  .icon {
+    font-size: 2rem;
+  }
+  
+  .contact-form {
+    margin-top: 30px;
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 10vw;
+    display: inline-block;
+    text-align: left;
+    width: 400px;
+  }
+  
+  .form-title {
+    text-align: center;
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: black;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form button {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .contact-form button:hover {
+    background: darkred;
+  }
+  
+  .contact-footer {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .contact-footer a {
+    color: red;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .contact-footer a:hover {
+    text-decoration: underline;
+  }
+  

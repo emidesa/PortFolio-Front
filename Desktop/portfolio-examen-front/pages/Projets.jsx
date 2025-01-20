@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProjetService from "../Services/ProjetService";
 import { Container } from "react-bootstrap";
+import ProjetsCards from "../components/ProjetsCards.JSX";
 
 const ProjetPage = () => {
 
@@ -21,22 +22,24 @@ const ProjetPage = () => {
         fetchProjet();
     }, []);
 
-    return <>
-    <Container>
-        <h1>Mes projets</h1>
-        <h2>Mon Portfolio</h2>
-        {Projets.map(projet => (
-            <div key={projet.idProjet}>
-                <h2>{projet.Titre}</h2>
-                <p>{projet.description}</p>
-                <p>{projet.Technologie}</p>
-                <img src="capture escape portfolio.png" alt="Mon image de projet" />
+   
+    return (
+        <Container>
+            <h1>Mes projets</h1>
+            <h2>Mon Portfolio</h2>
 
-            </div>
-        ))} 
+            {/* Vérification si des projets existent */}
+            {Projets.length > 0 ? (
+                Projets.map(projet => (
+                    <ProjetsCards projets={projet} key={projet.idProjet} />
+                ))
+            ) : (
+                <p>Aucun projet trouvé</p>
+            )}
+        </Container>
+    );
+};
       
-    </Container>
-    </>;
-}
+   
  
 export default ProjetPage;

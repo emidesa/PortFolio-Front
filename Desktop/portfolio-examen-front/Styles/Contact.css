@@ -121,7 +121,10 @@
   }
   
   .contact-footer a {
-    color: red;
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0 10px;
     text-decoration: none;
   }

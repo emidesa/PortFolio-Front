@@ -5,6 +5,7 @@ import Apropos from "../Pages/Apropos"
 import Skills from "../pages/Skills"
 import Parcours from "../pages/Parcours"
 import Contact from "../pages/Contact"
+import Projets from "../pages/Projets"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   <Route path="/Skills" element={<Skills/>} />
   <Route path="/Parcours" element={<Parcours/>} />
   <Route path="/Contact" element={<Contact />} />
+  <Route path="/Projets" element={<Projets />} />
 
 </Routes>
 </BrowserRouter>

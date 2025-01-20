@@ -4,6 +4,7 @@ import '../styles/Homepage.css';
 import Skills from "../pages/Skills"
 import Parcours from "../pages/Parcours"
 import Contact from "../pages/Contact"
+import Projet from "../pages/Projets"
 const Homepage = () => {
   return (
     <div className="homepage">
@@ -25,6 +26,7 @@ const Homepage = () => {
       <Apropos />
       <Skills />
       <Parcours />
+      <Projet />
       <Contact />
     </div>
   );

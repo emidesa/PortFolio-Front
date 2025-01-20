@@ -10,7 +10,6 @@ const SoftSkills = () => {
     const fetchSkills = async () => {
         try {
             const response = await SkillsService.getAllSkills();
-            console.log(response.data); // Vérifie ici la structure des données
             setSkills(response.data);
         } catch (error) {
             console.error("Erreur lors de la récupération des compétences", error);

@@ -1,0 +1,227 @@
+/* Container styles */
+.projects-container {
+    padding: 2rem;
+    background-color: #2D2D2D;
+    min-height: 100vh;
+  }
+  
+  /* Headings */
+  .projects-title {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .portfolio-subtitle {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  /* Projects grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Card styles */
+  .project-card {
+    background-color: #E6E6E6;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .project-body {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    color: #2D2D2D !important;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .project-button {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 0.5rem 2rem !important;
+    color: white !important;
+    font-size: 1rem !important;
+    transition: background-color 0.3s ease !important;
+  }
+  
+  .project-button:hover {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+  }
+  
+  /* Modal styles */
+  .modal-header {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: white;
+  }
+  
+  .modal-title {
+    color: white;
+  }
+  
+  .modal-body h5 {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 1rem;
+  }
+  
+  .modal-footer .btn-secondary {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    border: none;
+  }
+  
+  .modal-footer .btn-secondary:hover {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+  }
+
+  /* Vos styles existants restent inchangés jusqu'ici */
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .projects-grid {
+      max-width: 900px;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .projects-container {
+      padding: 1rem;
+    }
+  
+    .projects-title {
+      font-size: 2rem;
+    }
+  
+    .portfolio-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+  
+    .project-card {
+      max-width: 100%;
+    }
+  
+    .project-image {
+      height: 200px;
+    }
+  
+    .project-body {
+      padding: 1rem;
+    }
+  
+    .project-title {
+      font-size: 1.25rem;
+    }
+  
+    .project-button {
+      width: 100%;
+      padding: 0.75rem 1.5rem !important;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .projects-container {
+      padding: 0.5rem;
+    }
+  
+    .projects-title {
+      font-size: 1.75rem;
+    }
+  
+    .portfolio-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .project-image {
+      height: 180px;
+    }
+  
+    .modal-header {
+      padding: 0.75rem;
+    }
+  
+    .modal-body {
+      padding: 1rem;
+    }
+  
+    .modal-body h5 {
+      font-size: 1.1rem;
+    }
+  
+    .modal-footer {
+      padding: 0.75rem;
+    }
+  }
+  
+  /* Optimisation pour les grands écrans */
+  @media screen and (min-width: 1400px) {
+    .projects-grid {
+      max-width: 1400px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .project-card {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    .project-image {
+      height: 300px;
+    }
+  }
+  
+  /* Fix pour le modal sur mobile */
+  @media screen and (max-width: 576px) {
+    .modal-dialog {
+      margin: 0.5rem;
+    }
+  
+    .modal-content {
+      border-radius: 10px;
+    }
+  
+    .project-button {
+      font-size: 0.9rem !important;
+      padding: 0.5rem 1.5rem !important;
+    }
+  }

@@ -1,28 +1,24 @@
-import { useState } from 'react';
-import { Button, Card, Modal } from 'react-bootstrap';
+import { useState } from "react"
+import { Button, Card, Modal } from "react-bootstrap"
+import "../styles/projets.css"
 
 function ProjetsCards({ projets }) {
-  const [showModal, setShowModal] = useState(false);
-
-  // Fonction pour ouvrir le modal
-  const handleShow = () => setShowModal(true);
-
-  // Fonction pour fermer le modal
-  const handleClose = () => setShowModal(false);
+  const [showModal, setShowModal] = useState(false)
+  const handleShow = () => setShowModal(true)
+  const handleClose = () => setShowModal(false)
 
   return (
     <>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={projets.Image} alt={projets.Titre} />
-        <Card.Body>
-          <Card.Title>{projets.Titre}</Card.Title>
-          <Button variant="primary" onClick={handleShow}>
+      <Card className="project-card">
+        <Card.Img className="project-image" variant="top" src={projets.Image} alt={projets.Titre} />
+        <Card.Body className="project-body">
+          <Card.Title className="project-title">{projets.Titre}</Card.Title>
+          <Button className="project-button" onClick={handleShow}>
             Voir détails
           </Button>
         </Card.Body>
       </Card>
 
-      {/* Modal pour afficher les détails du projet */}
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{projets.Titre}</Modal.Title>
@@ -43,7 +39,8 @@ function ProjetsCards({ projets }) {
         </Modal.Footer>
       </Modal>
     </>
-  );
+  )
 }
 
-export default ProjetsCards;
+export default ProjetsCards
+

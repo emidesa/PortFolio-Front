@@ -6,12 +6,12 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  position: relative; /* Ajoute un contexte de positionnement */
 }
 
 .about__description {
   margin-left: 6vw;
   margin-top: 0;
+  position: relative;
 }
 
 .about__title {
@@ -61,6 +61,7 @@
   object-fit: cover;
   border-radius: 8px;
   margin-top: 3vh;
+  position: relative;
 }
 
 .about__text-container {
@@ -71,6 +72,7 @@
   text-align: justify;
   line-height: 1.8; /* Pour améliorer la lisibilité */
   width: 45vw;
+  position: relative;
 }
 
 .quality-cards {
@@ -119,6 +121,7 @@
   margin-left: 37vw;
   font-weight: 500;
   font-size: 1.2rem;
+  position: relative;
 }
 
 .about__contact-button:hover {

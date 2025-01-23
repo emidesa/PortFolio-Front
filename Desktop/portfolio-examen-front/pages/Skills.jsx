@@ -27,7 +27,7 @@ const SoftSkills = () => {
     const designSkills = skills.filter(skill => skill.category === "design");
 
     return (
-        <>
+        
             <body className="body-skills">
                 <h1 className="skills-title">Mes softSkills</h1>
                 <h1 className="skills-subtitle">Skills</h1>
@@ -104,7 +104,7 @@ const SoftSkills = () => {
                 </Container>
                 </div>
             </body>
-        </>
+        
     );
 };
 

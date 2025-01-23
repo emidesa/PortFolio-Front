@@ -6,6 +6,7 @@ import Skills from "../pages/Skills"
 import Parcours from "../pages/Parcours"
 import Contact from "../pages/Contact"
 import Projets from "../pages/Projets"
+import Particles from "../components/particles"
 
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
 
   return <>
 <BrowserRouter>
-<NavBar></NavBar>
+<Particles/>
+<NavBar/>
+
 <Routes>
   <Route path="/" element={<Homepage />} />
   <Route path="/Apropos" element={<Apropos/>} />
@@ -23,6 +26,7 @@ function App() {
   <Route path="/Projets" element={<Projets />} />
 
 </Routes>
+
 </BrowserRouter>
   </>
 }

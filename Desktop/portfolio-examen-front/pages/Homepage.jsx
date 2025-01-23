@@ -5,6 +5,7 @@ import Skills from "../pages/Skills"
 import Parcours from "../pages/Parcours"
 import Contact from "../pages/Contact"
 import Projet from "../pages/Projets"
+import Avatar3D from "../components/Avatar3D";
 const Homepage = () => {
   return (
     <div className="homepage">
@@ -22,6 +23,7 @@ const Homepage = () => {
             Contact Me!
           </button>
         </div>
+        <Avatar3D />
       </main>
       <Apropos />
       <Skills />

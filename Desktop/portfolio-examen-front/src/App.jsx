@@ -7,6 +7,8 @@ import Parcours from "../pages/Parcours"
 import Contact from "../pages/Contact"
 import Projets from "../pages/Projets"
 import Particles from "../components/particles"
+import AdminLogin from "../pages/adminLogin"
+import ProfilPageAdmin from "../pages/ProfilPageAdmin"
 
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
   <Route path="/Parcours" element={<Parcours/>} />
   <Route path="/Contact" element={<Contact />} />
   <Route path="/Projets" element={<Projets />} />
+  <Route path='/adminLogin' element={<AdminLogin/>}/>
+  <Route path='/profilPageAdmin' element={<ProfilPageAdmin/>}/>
+
 
 </Routes>
 

@@ -1,0 +1,90 @@
+.admin-container {
+    padding: 2rem;
+    background-color: #2D2D2D;
+    min-height: 100vh;
+    position: relative;
+    margin-left: 9vw;
+  }
+  
+  .admin-title {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .nav-tabs {
+    margin-bottom: 2rem;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #495057;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-tabs .nav-link:hover,
+  .nav-tabs .nav-link.active {
+    background: linear-gradient(90deg, #FF6B6B, #8B0000);
+    
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-top: 7vh;
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .table {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table thead th {
+    background-color: #007bff;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 123, 255, 0.05);
+  }
+  
+  .btn-info,
+  .btn-danger {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+  }
+  
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-container {
+      padding: 1rem;
+    }
+  
+    .nav-tabs .nav-link {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  
+    .table-responsive {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  

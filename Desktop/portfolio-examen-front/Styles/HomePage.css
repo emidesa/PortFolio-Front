@@ -88,10 +88,11 @@
 
   .avatar-container {
     position: relative;  /* S'assure qu'il reste en place même au scroll */
-    width: 50vw;     /* Pleine largeur */
-    height: 50vh;    /* Pleine hauteur */
+    width: 90vw;     /* Pleine largeur */
+    height: 90vh;    /* Pleine hauteur */
     z-index: 1;    /* Pour être en premier plan */
-      background-color: transparent; 
+    background-color: transparent; 
+    
   }
 
   canvas {

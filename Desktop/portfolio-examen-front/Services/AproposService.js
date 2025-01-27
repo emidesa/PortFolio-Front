@@ -10,8 +10,8 @@ function getAllIcons() {
     return axios.get(`${API_URL}/allIcons`); 
   }
 
-  function addPresentation(presentation){
-    return axios.post(`${API_URL}/addPresentation`, presentation);
+  function addPresentation(Presentation){
+    return axios.post(`${API_URL}/addPresentation`,Presentation);
   }
 
     function updatePresentation(id, presentation) {

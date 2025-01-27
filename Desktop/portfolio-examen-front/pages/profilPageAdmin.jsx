@@ -45,46 +45,51 @@ const PageProfilAdmin = () => {
   }
 
   const handleAdd = () => {
-    setModalMode("add")
-    setCurrentItem({})
-    setShowModal(true)
+    if (key === "parcours" || key === "skills" || key === "projets") {
+      setModalMode("add")
+      setCurrentItem({})
+      setShowModal(true)
+    }
   }
 
   const handleEdit = (item) => {
-    setModalMode("edit")
-    setCurrentItem(item)
-    setShowModal(true)
+    if (key === "presentation" || key === "parcours" || key === "skills" || key === "projets") {
+      setModalMode("edit")
+      setCurrentItem(item)
+      setShowModal(true)
+    }
   }
 
   const handleDelete = async (item) => {
-    if (window.confirm("Êtes-vous sûr de vouloir supprimer cet élément ?")) {
-      try {
-        switch (key) {
-          case "parcours":
-            await ParcoursService.deleteParcours(item.idParcours)
-            break
-          case "presentation":
-            await AproposService.deletePresentation(item.idPresentation)
-            break
-          case "skills":
-            await SkillsService.deleteSkills(item.idSkills)
-            break
-          case "messages":
-            await MessageService.deleteMessage(item.idMessage)
-            break
-          case "projets":
-            await ProjetService.deleteProjet(item.idProjet)
-            break
+    if (key === "messages" || key === "parcours" || key === "skills" || key === "projets") {
+      if (window.confirm("Êtes-vous sûr de vouloir supprimer cet élément ?")) {
+        try {
+          switch (key) {
+            case "parcours":
+              await ParcoursService.deleteParcours(item.idParcours)
+              break
+            case "skills":
+              await SkillsService.deleteSkills(item.idSkills)
+              break
+            case "messages":
+              await MessageService.deleteMessage(item.idMessage)
+              break
+            case "projets":
+              await ProjetService.deleteProjet(item.idProjet)
+              break
+          }
+          fetchData()
+        } catch (error) {
+          console.error("Erreur lors de la suppression", error)
         }
-        fetchData()
-      } catch (error) {
-        console.error("Erreur lors de la suppression", error)
       }
     }
   }
 
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(currentItem); 
     try {
       if (modalMode === "add") {
         switch (key) {
@@ -100,6 +105,9 @@ const PageProfilAdmin = () => {
         }
       } else {
         switch (key) {
+          case "presentation":
+            await AproposService.updatePresentation(currentItem.idPresentation, currentItem)
+            break
           case "parcours":
             await ParcoursService.updateParcours(currentItem.idParcours, currentItem)
             break
@@ -133,12 +141,16 @@ const PageProfilAdmin = () => {
           <tr key={index}>
             {renderRow(item)}
             <td>
-              <Button variant="info" size="sm" className="mr-2" onClick={() => handleEdit(item)}>
-                Modifier
-              </Button>
-              <Button variant="danger" size="sm" onClick={() => handleDelete(item)}>
-                Supprimer
-              </Button>
+              {(key === "presentation" || key === "parcours" || key === "skills" || key === "projets") && (
+                <Button variant="info" size="sm" className="mr-2" onClick={() => handleEdit(item)}>
+                  Modifier
+                </Button>
+              )}
+              {(key === "messages" || key === "parcours" || key === "skills" || key === "projets") && (
+                <Button variant="danger" size="sm" onClick={() => handleDelete(item)}>
+                  Supprimer
+                </Button>
+              )}
             </td>
           </tr>
         ))}
@@ -148,6 +160,38 @@ const PageProfilAdmin = () => {
 
   const renderForm = () => {
     switch (key) {
+      case "presentation":
+        return (
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>Qualité</Form.Label>
+              <Form.Control
+                type="text"
+                value={currentItem.Qualité || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, Qualité: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                value={currentItem.description || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, description: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Photo</Form.Label>
+              <Form.Control 
+              type="text" 
+              value={currentItem.photo || ""}
+               onChange={(e) => setCurrentItem({ ...currentItem, Photo: e.target.value })}/>
+            </Form.Group>
+
+            <Button type="submit">Enregistrer</Button>
+          </Form>
+        )
       case "parcours":
         return (
           <Form onSubmit={handleSubmit}>
@@ -171,8 +215,8 @@ const PageProfilAdmin = () => {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
-                value={currentItem.Description || ""}
-                onChange={(e) => setCurrentItem({ ...currentItem, Description: e.target.value })}
+                value={currentItem.description || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, description: e.target.value })}
               />
             </Form.Group>
             <Form.Group>
@@ -197,16 +241,18 @@ const PageProfilAdmin = () => {
                 onChange={(e) => setCurrentItem({ ...currentItem, Name: e.target.value })}
               />
             </Form.Group>
+
             <Form.Group>
               <Form.Label>Icône</Form.Label>
-              <Form.Control
-                type="text"
-                value={currentItem.IconeTechno || ""}
-                onChange={(e) => setCurrentItem({ ...currentItem, IconeTechno: e.target.value })}
-              />
+              <Form.Control 
+              type="text" 
+              valut={currentItem.IconeTechno}
+              onChange={(e) => setCurrentItem({ ...currentItem, IconeTechno: e.target.value })} />
             </Form.Group>
+
             <Form.Group>
-              <Form.Label>Catégorie</Form.Label>
+              <Form.Label>catégory
+              </Form.Label>
               <Form.Control
                 type="text"
                 value={currentItem.category || ""}
@@ -235,29 +281,40 @@ const PageProfilAdmin = () => {
                 onChange={(e) => setCurrentItem({ ...currentItem, description: e.target.value })}
               />
             </Form.Group>
+
             <Form.Group>
-              <Form.Label>Technologies</Form.Label>
+              <Form.Label>Technologie</Form.Label>
               <Form.Control
-                type="text"
+                as="textarea"
                 value={currentItem.Technologie || ""}
                 onChange={(e) => setCurrentItem({ ...currentItem, Technologie: e.target.value })}
               />
             </Form.Group>
+
             <Form.Group>
-              <Form.Label>Lien GitHub</Form.Label>
+              <Form.Label>Lien GitHub Front</Form.Label>
               <Form.Control
                 type="text"
-                value={currentItem.LienGit || ""}
-                onChange={(e) => setCurrentItem({ ...currentItem, LienGit: e.target.value })}
+                value={currentItem.LienGitFront || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, LienGitFront: e.target.value })}
               />
             </Form.Group>
+
             <Form.Group>
-              <Form.Label>Image</Form.Label>
+              <Form.Label>Lien GitHub Back</Form.Label>
               <Form.Control
                 type="text"
-                value={currentItem.Image || ""}
-                onChange={(e) => setCurrentItem({ ...currentItem, Image: e.target.value })}
+                value={currentItem.LienGitBack || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, LienGitBack: e.target.value })}
               />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Image</Form.Label>
+              <Form.Control 
+              type="text" 
+              value={currentItem.Image || ""}
+              onChange={(e) => setCurrentItem({ ...currentItem, Image: e.target.value })} />
             </Form.Group>
             <Button type="submit">Enregistrer</Button>
           </Form>
@@ -284,9 +341,8 @@ const PageProfilAdmin = () => {
         </Tab>
         <Tab eventKey="presentation" title="Présentation">
           <h2>Gestion de la Présentation</h2>
-          {renderTable(["Titre", "Qualité", "Description", "Photo"], presentation, (item) => (
+          {renderTable(["Qualités", "Description", "Photo"], presentation, (item) => (
             <>
-              <td>{item.Titre}</td>
               <td>{item.Qualité}</td>
               <td>{item.description}</td>
               <td>{item.photo}</td>
@@ -315,20 +371,27 @@ const PageProfilAdmin = () => {
         </Tab>
         <Tab eventKey="projets" title="Projets">
           <h2>Gestion des Projets</h2>
-          {renderTable(["Titre", "Description", "Technologies", "Lien GitHub", "Image"], projets, (item) => (
-            <>
-              <td>{item.Titre}</td>
-              <td>{item.description}</td>
-              <td>{item.Technologie}</td>
-              <td>{item.LienGit}</td>
-              <td>{item.Image}</td>
-            </>
-          ))}
+          {renderTable(
+            ["Titre", "Description", "Technologie", "LienGitFront", "LienGitBack", "Image"],
+            projets,
+            (item) => (
+              <>
+                <td>{item.Titre}</td>
+                <td>{item.description}</td>
+                <td>{item.Technologie}</td>
+                <td>{item.LienGitFront}</td>
+                <td>{item.LienGitBack}</td>
+                <td>{item.Image}</td>
+              </>
+            ),
+          )}
         </Tab>
       </Tabs>
-      <Button variant="primary" className="mt-3" onClick={handleAdd}>
-        Ajouter un nouvel élément
-      </Button>
+      {(key === "parcours" || key === "skills" || key === "projets") && (
+        <Button variant="primary" className="mt-3" onClick={handleAdd}>
+          Ajouter un nouvel élément
+        </Button>
+      )}
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>

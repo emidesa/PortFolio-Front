@@ -28,7 +28,7 @@ const SoftSkills = () => {
 
     return (
         
-            <body className="body-skills">
+            <body className="body-skills" id="Skills">
                 <h1 className="skills-title">Mes softSkills</h1>
                 <h1 className="skills-subtitle">Skills</h1>
 

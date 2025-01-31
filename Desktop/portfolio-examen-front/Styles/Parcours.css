@@ -30,6 +30,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-top: 1vh;
 }
    
 
@@ -79,6 +80,7 @@
     width: 285px; /* Taille fixe pour chaque carte */
     flex-grow: 0; /* Empêche la carte de se redimensionner */
     flex-shrink: 0; /* Empêche la carte de se réduire */
+    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
 }
 
 .parcours-card:hover {
@@ -124,26 +126,105 @@
     font-size: 0.9rem;
 }
 
-@media (max-width: 1200px) {
-    .cards-container {
-        justify-content: center;
-    }
-}
-
+/* Version mobile */
 @media (max-width: 900px) {
+    /* Mise en forme de la page */
+    .parcours-page {
+        padding: 20px;
+    }
+
+    .parcours-page h1 {
+        font-size: 1.8rem; /* Taille du titre ajustée pour la version mobile */
+        margin-bottom: 10px;
+    }
+
+    .parcours-page h2 {
+        font-size: 1.4rem; /* Ajuste la taille du sous-titre */
+    }
+
+    /* Filter Buttons */
     .filter-buttons {
         flex-direction: column;
         align-items: center;
         gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .filter-button {
+        font-size: 1rem; /* Réduit la taille des boutons pour les petits écrans */
+        padding: 6px 18px;
+    }
+
+    /* Container des cartes */
+    .cards-container-parcours {
+        justify-content: center;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    /* Cartes */
+    .parcours-card {
+        width: 90vw; /* Ajuste la largeur des cartes en fonction de l'écran */
+        margin-bottom: 20px; /* Ajoute un espace entre les cartes */
+    }
+
+    /* Style de la carte */
+    .parcours-card .card-header {
+        padding: 15px;
+    }
+
+    .parcours-card .card-title {
+        font-size: 1.2rem; /* Ajuste la taille du titre de la carte */
+    }
+
+    .parcours-card .card-body {
+        padding: 10px 15px;
+    }
+
+    .parcours-card .card-text {
+        font-size: 1rem; /* Réduit la taille de la police pour le texte de la carte */
+    }
+
+    .parcours-card .card-footer {
+        padding: 10px;
+        font-size: 0.8rem;
     }
 }
 
+/* Version très mobile (moins de 600px) */
 @media (max-width: 600px) {
     .parcours-page h1 {
-        font-size: 2rem;
+        font-size: 1.5rem; /* Réduit encore la taille du titre pour les petits écrans */
     }
 
     .parcours-page h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* Ajuste la taille du sous-titre pour les très petits écrans */
+    }
+
+    .filter-button {
+        font-size: 0.9rem; /* Plus petit pour les petits écrans */
+        padding: 5px 15px;
+    }
+
+    .cards-container-parcours {
+        gap: 15px; /* Réduit l'espace entre les cartes */
+    }
+
+    .parcours-card {
+        width: 70vw; /* Carte encore plus large sur les écrans très petits */
+        margin-bottom: 10px;
+    }
+
+    .parcours-card .card-title {
+        font-size: 1rem; /* Ajuste la taille du titre pour les très petits écrans */
+    }
+
+    .parcours-card .card-text {
+        font-size: 0.9rem; /* Réduit la taille de la police pour le texte des cartes */
+    }
+
+    .parcours-card .card-footer {
+        font-size: 0.7rem; /* Plus petit pour les écrans très petits */
     }
 }
+

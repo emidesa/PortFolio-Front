@@ -28,7 +28,7 @@ const ParcoursPage = () => {
   });
 
   return (
-    <div className="parcours-page">
+    <div className="parcours-page" id="Parcours">
       <h1>Mes Expériences</h1>
       <h2>Mon parcours</h2>
       

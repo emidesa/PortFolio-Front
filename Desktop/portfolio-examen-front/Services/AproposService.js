@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = "http://192.168.1.16:3000";
 
 function getAllPresentation () {
     return axios.get(`${API_URL}/allpresentation`);

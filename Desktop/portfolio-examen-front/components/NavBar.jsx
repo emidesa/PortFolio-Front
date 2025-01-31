@@ -4,37 +4,45 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import githubIcon from "../assets/github.png";
 import linkedinIcon from "../assets/linkedin.png";
 import mailIcon from "../assets/mail.png";
-import { useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 
 function NavBar() {
-  const navigate = useNavigate();
+
+    const handleScrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Défilement vers le haut de la page
+    };
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <Navbar className="navbar">
-      <div className="navbar__logo-container">
+      <div className="navbar__logo-container" onClick={handleScrollToTop} style={{ cursor: "pointer" }}>
         <h1 className="navbar__logo">ED</h1>
         <p className="navbar__subtitle">Web developer</p>
       </div>
 
       <Nav className="navbar__nav">
-        <Nav.Link href="#About Me" onClick={() => navigate('/Apropos')} className="navbar__link">
+        <Nav.Link href="#About Me" onClick={() => handleScroll('About Me')} className="navbar__link">
           A propos
           <div className="navbar__link-underline"></div>
         </Nav.Link>
-        <Nav.Link href="#Skills" onClick={() => navigate('/Skills')}  className="navbar__link">
+        <Nav.Link href="#Skills" onClick={() => handleScroll('Skills')} className="navbar__link">
           Skills
           <div className="navbar__link-underline"></div>
         </Nav.Link>
-        <Nav.Link href="#Parcours"onClick={() => navigate('/Parcours')} className="navbar__link">
+        <Nav.Link href="#Parcours" onClick={() => handleScroll('Parcours')} className="navbar__link">
           Parcours
           <div className="navbar__link-underline"></div>
         </Nav.Link>
-        <Nav.Link href="#Projects" className="navbar__link">
+        <Nav.Link href="#Projects" onClick={() => handleScroll('Projets')} className="navbar__link">
           Projets
           <div className="navbar__link-underline"></div>
         </Nav.Link>
-        <Nav.Link href="#Contact" className="navbar__link">
+        <Nav.Link href="#Contact" onClick={() => handleScroll('Contact')} className="navbar__link">
           Contacts
         </Nav.Link>
       </Nav>
@@ -55,4 +63,3 @@ function NavBar() {
 }
 
 export default NavBar;
-

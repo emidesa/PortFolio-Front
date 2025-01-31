@@ -25,6 +25,7 @@
     gap: 1rem;
     background-color: #E0E0E0;
     border-radius: 0 0 25px 25px;
+    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
 
 }
 
@@ -44,16 +45,18 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 
 .skills-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; 
     margin-bottom: 2rem;
     border-radius: 5px;
-    
-}
+    width: 3vw;
+  }
 
 .card-header {
     background: linear-gradient(90deg, #FF6B6B, #8B0000);
@@ -83,7 +86,11 @@
     text-align: center;
     color: white;
     font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden; /* Masque tout texte qui dépasse */
+    text-overflow: ellipsis; /* Ajoute "..." si le texte dépasse */
 }
+
 
 .skills-title::after {
     content: "";
@@ -138,35 +145,54 @@
 
     .skill-card {
         width: 80vw;
+        
     }
 }
 
 @media (max-width: 768px) {
     .body-skills {
         padding-top: 2rem;
+        
     }
-
 
     .cards-container {
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
-    }
+        justify-content: center; /* Centrer les cartes */
+        margin-right: 0;
+        align-items: center; /* Centrer horizontalement */
+        margin-right: 45vw;
 
+    }
+    
     .skill-card {
         width: 90vw;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrer le contenu des cartes */
+        align-items: center; /* Centrer les éléments à l'intérieur de la carte */
+        
     }
 
     .Card-icon {
         flex-direction: column;
-        width: 50vw;
-        
+        align-items: center; /* Centrer les icônes */
+        display: flex;
+        justify-content: center; /* Centrer les icônes */
+        width: 70vw; 
     }
 
+
     .card-header {
-        width: 50vw;
+        width: 70vw;
+        text-align: center; /* Centrer le texte dans l'en-tête */
     }
 
     .card-category {
         width: 100%;
+        text-align: center; /* Centrer la catégorie */
     }
 
     .vertical-line {
@@ -177,21 +203,35 @@
 
     .skills-title {
         font-size: 1.5rem;
+        text-align: center; /* Centrer le titre */
     }
 
     .skills-subtitle {
         font-size: 1.2rem;
         margin-bottom: 3rem;
+        text-align: center; /* Centrer le sous-titre */
     }
 
     .card-title {
         font-size: 1.2rem;
+        text-align: center; /* Centrer le titre de la carte */
+    }
+
+    .skills-image {
+        width: 15vw !important;
+        height: auto;
+             
     }
 }
 
 @media (max-width: 576px) {
     .skill-card {
-        width: 95vw;
+        width: 80vw;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .skills-image {
@@ -199,6 +239,13 @@
     }
 
     .card-title-container {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .Card-icon {
+        align-items: center;
+        justify-content: center;
+        display: flex;
     }
 }
+

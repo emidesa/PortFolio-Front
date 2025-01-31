@@ -1,148 +1,146 @@
 /* Styles de base de la navbar */
 .navbar {
-    background-color: #151515;
-    width: 9vw;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column; /* Par défaut, la navbar est en colonne */
-    align-items: center;
+  background-color: #151515;
+  width: 9vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column; /* Par défaut, la navbar est en colonne */
+  align-items: center;
+}
+
+/* Logo */
+.navbar__logo-container {
+  text-align: center;
+  margin-bottom: 5rem;
+  padding: 2.5rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 210px;
+  background-color: black;
+  width: 100%;
+}
+
+.navbar__logo {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(90deg, #FF6B6B, #8B0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Rochester", cursive;
+}
+
+.navbar__subtitle {
+  color: white;
+  font-family: "roboto", sans-serif;
+  align-items: center;
+}
+
+/* Navigation */
+.navbar__nav {
+  display: flex;
+  flex-direction: column; /* Par défaut, les liens sont en colonne */
+  justify-content: center;
+  gap: 5vh;
+  padding-top: 35vh;
+}
+
+/* Liens */
+.navbar__link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  color: white;
+  transition: background 0.3s ease, -webkit-text-fill-color 0.3s ease;
+  font-family: "roboto", sans-serif;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  background: linear-gradient(90deg, #FF6B6B, #8B0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar__link:hover {
+  background: linear-gradient(90deg, #FF6B6B, #8B0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar__link-underline {
+  position: absolute;
+  width: 50%;
+  bottom: -25px;
+  left: 25%;
+  border-bottom: 2px solid white;
+}
+
+/* Icônes sociales */
+.navbar__social-icons {
+  margin-top: 7rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.navbar__social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Styles responsive */
+@media (max-width: 768px) {
+  .navbar {
+      display: none; /* Masque la navbar sur les écrans de moins de 768px */
   }
-  
-  /* Logo */
-  .navbar__logo-container {
-    text-align: center;
-    margin-bottom: 5rem;
-    padding: 2.5rem 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 210px;
-    background-color: black;
-    width: 100%;
+
+  .navbar-expand .navbar__nav {
+      flex-direction: column; /* Les éléments de la navbar seront en ligne sur grand écran */
   }
-  
-  .navbar__logo {
-    color: white;
-    font-weight: bold;
-    margin-bottom: 2.5rem;
-    background: linear-gradient(90deg, #FF6B6B, #8B0000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Rochester", cursive;
-  }
-  
-  .navbar__subtitle {
-    color: white;
-    font-family: "roboto", sans-serif;
-align-items: center;  }
-  
-  /* Navigation */
+
   .navbar__nav {
-    display: flex;
-    flex-direction: column; /* Par défaut, les liens sont en colonne */
-    justify-content: center;
-    gap: 5vh;
-    padding-top: 35vh;
+      display: flex;
+      flex-direction: column; /* Les éléments de la navbar seront en ligne sur petit écran */
+      justify-content: center;
+      gap: 6vh;
   }
-  
-  /* Liens */
-  .navbar__link {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    color: white;
-    transition: background 0.3s ease, -webkit-text-fill-color 0.3s ease;
-    font-family: "roboto", sans-serif;
-  }
-  
-  .navbar__link:hover {
-    background: linear-gradient(90deg, #FF6B6B, #8B0000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .navbar__link-underline {
-    position: absolute;
-    width: 50%;
-    bottom: -25px;
-    left: 25%;
-    border-bottom: 2px solid white;
-  }
-  
-  /* Icônes sociales */
-  .navbar__social-icons {
-    margin-top: 7rem;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  .navbar__social-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  /* Styles responsive */
-  @media (max-width: 768px) {
-    .navbar {
-        position: fixed; /* Fixe la navbar au viewport */
-        top: 0; /* Assure qu'elle reste en haut */
-        left: 0; /* Ancrage à gauche */
-        width: 9vw; /* Largeur ajustée */
-        height: 100vh; /* Ajuste la hauteur selon les besoins */
-        z-index: 1; /* S'assure qu'elle reste au-dessus des autres éléments */
-      }
 
-    .navbar-expand .navbar__nav {
-        flex-direction: column; /* Les éléments de la navbar seront en ligne sur grand écran */
-        
-      }
-
-    .navbar__nav {
-        display: flex;
-        flex-direction: column; /* Les éléments de la navbar seront en ligne sur petit écran */
-        justify-content: center;
-        gap: 6vh;
-  
-    }
-  
-    .navbar__logo-container {
+  .navbar__logo-container {
       height: auto;
       margin-bottom: 3rem;
       padding: 1rem 0;
-    }
-  
-    .navbar__logo {
+  }
+
+  .navbar__logo {
       margin-bottom: 1rem;
       font-size: 2rem; /* Réduire la taille du logo */
-    }
-  
-    .navbar__subtitle {
+  }
+
+  .navbar__subtitle {
       font-size: 1rem; /* Réduire la taille de la subtitle */
-    }
-  
-    .navbar__link {
+  }
+
+  .navbar__link {
       font-size: 1rem; /* Réduire la taille des liens */
-    }
-  
-    .navbar__social-icons {
+  }
+
+  .navbar__social-icons {
       justify-content: space-between;
       margin-top: 2rem;
-    }
-
-    
   }
-  
-  /* Lorsque la navbar est en mode "expand" (sur grand écran) */
-  @media (min-width: 769px) {
-    .navbar-expand .navbar__nav {
+}
+
+/* Lorsque la navbar est en mode "expand" (sur grand écran) */
+@media (min-width: 769px) {
+  .navbar-expand .navbar__nav {
       flex-direction: column; /* Les éléments de la navbar seront en ligne sur grand écran */
       margin-top: 0;
-    }
   }
-  
+}

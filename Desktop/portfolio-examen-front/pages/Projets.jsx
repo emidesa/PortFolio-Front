@@ -20,7 +20,7 @@ const ProjetPage = () => {
   }, [])
 
   return (
-    <div className="projects-container">
+    <div className="projects-container" id="Projets">
       <h1 className="projects-title">Mes projets</h1>
       <h2 className="portfolio-subtitle">Mon Portfolio</h2>
 

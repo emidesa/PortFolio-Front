@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Container, Tabs, Tab, Table, Button, Modal, Form } from "react-bootstrap"
 import "../styles/PageProfilAdmin.css"
 import ProjetService from "../Services/ProjetService"
@@ -6,8 +6,10 @@ import AproposService from "../Services/AproposService"
 import SkillsService from "../Services/SkillsService"
 import ParcoursService from "../Services/ParcoursService"
 import MessageService from "../Services/MessageService"
+import { useNavigate } from "react-router-dom"
 
 const PageProfilAdmin = () => {
+  const navigate = useNavigate()
   const [key, setKey] = useState("parcours")
   const [parcours, setParcours] = useState([])
   const [presentation, setPresentation] = useState([])
@@ -20,8 +22,27 @@ const PageProfilAdmin = () => {
   const [currentItem, setCurrentItem] = useState({})
 
   useEffect(() => {
+    const adminToken = localStorage.getItem("adminToken")
+    const isAdmin = localStorage.getItem("isAdmin")
+
+    if (!adminToken || isAdmin !== "true") {
+      console.error("Token admin manquant ou accès non autorisé")
+      navigate("/AdminLogin")
+      return
+    }
+
+    fetchData()
+  }, [navigate])
+
+  useEffect(() => {
     fetchData()
   }, [])
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken")
+    localStorage.removeItem("isAdmin")
+    navigate("/AdminLogin")
+  }
 
   const fetchData = async () => {
     try {
@@ -86,10 +107,9 @@ const PageProfilAdmin = () => {
     }
   }
 
-
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(currentItem); 
+    console.log(currentItem)
     try {
       if (modalMode === "add") {
         switch (key) {
@@ -183,10 +203,11 @@ const PageProfilAdmin = () => {
 
             <Form.Group>
               <Form.Label>Photo</Form.Label>
-              <Form.Control 
-              type="text" 
-              value={currentItem.photo || ""}
-               onChange={(e) => setCurrentItem({ ...currentItem, Photo: e.target.value })}/>
+              <Form.Control
+                type="text"
+                value={currentItem.photo || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, Photo: e.target.value })}
+              />
             </Form.Group>
 
             <Button type="submit">Enregistrer</Button>
@@ -244,15 +265,15 @@ const PageProfilAdmin = () => {
 
             <Form.Group>
               <Form.Label>Icône</Form.Label>
-              <Form.Control 
-              type="text" 
-              valut={currentItem.IconeTechno}
-              onChange={(e) => setCurrentItem({ ...currentItem, IconeTechno: e.target.value })} />
+              <Form.Control
+                type="text"
+                valut={currentItem.IconeTechno}
+                onChange={(e) => setCurrentItem({ ...currentItem, IconeTechno: e.target.value })}
+              />
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>catégory
-              </Form.Label>
+              <Form.Label>catégory</Form.Label>
               <Form.Control
                 type="text"
                 value={currentItem.category || ""}
@@ -311,10 +332,11 @@ const PageProfilAdmin = () => {
 
             <Form.Group>
               <Form.Label>Image</Form.Label>
-              <Form.Control 
-              type="text" 
-              value={currentItem.Image || ""}
-              onChange={(e) => setCurrentItem({ ...currentItem, Image: e.target.value })} />
+              <Form.Control
+                type="text"
+                value={currentItem.Image || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, Image: e.target.value })}
+              />
             </Form.Group>
             <Button type="submit">Enregistrer</Button>
           </Form>
@@ -326,7 +348,13 @@ const PageProfilAdmin = () => {
 
   return (
     <Container className="admin-container">
+      <div className="d-flex justify-content-end">
+  <Button variant="danger" className="mb-3" onClick={handleLogout}>
+    Déconnexion
+  </Button>
+</div>
       <h1 className="admin-title">Administration du Portfolio</h1>
+      
       <Tabs id="admin-tabs" activeKey={key} onSelect={(k) => setKey(k)} className="mb-3">
         <Tab eventKey="parcours" title="Parcours">
           <h2>Gestion du Parcours</h2>
@@ -385,8 +413,10 @@ const PageProfilAdmin = () => {
               </>
             ),
           )}
+          
         </Tab>
       </Tabs>
+      
       {(key === "parcours" || key === "skills" || key === "projets") && (
         <Button variant="primary" className="mt-3" onClick={handleAdd}>
           Ajouter un nouvel élément

@@ -28,8 +28,6 @@ function App() {
   <Route path="/Projets" element={<Projets />} />
   <Route path='/adminLogin' element={<AdminLogin/>}/>
   <Route path='/profilPageAdmin' element={<ProfilPageAdmin/>}/>
-
-
 </Routes>
 
 </BrowserRouter>

@@ -46,11 +46,18 @@ const AboutMe = () => {
     return <p className="loading-message">Chargement des données...</p>;
   }
 
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("Contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const qualities = presentation.Qualité ? presentation.Qualité.split(", ") : [];
   const qualityIcons = qualities.map((_, index) => icons[index]);
 
   return (
-    <main className="about">
+    <main className="about" id="About Me">
       <h2 className="about__title">Présentation</h2>
       <h3 className="about__subtitle">About Me</h3>
 
@@ -69,7 +76,7 @@ const AboutMe = () => {
         </div>
       </div>
 
-      <button className="about__contact-button">Contact Me!</button>
+      <button className="about__contact-button" onClick={handleScrollToContact}>Contact Me! </button>
     </main>
   );
 };

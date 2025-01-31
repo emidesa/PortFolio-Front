@@ -10,6 +10,7 @@ const SoftSkills = () => {
     const fetchSkills = async () => {
         try {
             const response = await SkillsService.getAllSkills();
+            console.log(response.data);
             setSkills(response.data);
         } catch (error) {
             console.error("Erreur lors de la récupération des compétences", error);
@@ -21,19 +22,18 @@ const SoftSkills = () => {
     }, []);
 
     // Filtrer les compétences par catégorie
-    const frontEndSkills = skills.filter(skill => skill.category === "front-end");
-    const backEndSkills = skills.filter(skill => skill.category === "back-end");
-    const codeSkills = skills.filter(skill => skill.category === "code");
-    const designSkills = skills.filter(skill => skill.category === "design");
+    const frontEndSkills = skills.filter((skill) => skill.category === "front-end");
+    const backEndSkills = skills.filter((skill) => skill.category === "back-end");
+    const codeSkills = skills.filter((skill) => skill.category === "code");
+    const designSkills = skills.filter((skill) => skill.category === "design");
 
     return (
-        
-            <body className="body-skills" id="Skills">
-                <h1 className="skills-title">Mes softSkills</h1>
-                <h1 className="skills-subtitle">Skills</h1>
+        <body className="body-skills" id="Skills">
+            <h1 className="skills-title">Mes softSkills</h1>
+            <h1 className="skills-subtitle">Skills</h1>
 
-                <div className="cards-container">
-                <Container >
+            <div className="cards-container">
+                <Container>
                     <Card className="container-left">
                         <CardHeader className="card-header">
                             <div className="card-title">
@@ -43,9 +43,9 @@ const SoftSkills = () => {
                         <div className="Card-icon">
                             <div className="card-category">
                                 <h5>Front-end</h5>
-                                <br/>
+                                <br />
                                 {frontEndSkills.length > 0 ? (
-                                    frontEndSkills.map(skill => (
+                                    frontEndSkills.map((skill) => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
                                     ))
                                 ) : (
@@ -55,9 +55,9 @@ const SoftSkills = () => {
                             <div className="vertical-line"></div>
                             <div className="card-category">
                                 <h5>Back-end</h5>
-                                <br/>
+                                <br />
                                 {backEndSkills.length > 0 ? (
-                                    backEndSkills.map(skill => (
+                                    backEndSkills.map((skill) => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
                                     ))
                                 ) : (
@@ -78,9 +78,9 @@ const SoftSkills = () => {
                         <div className="Card-icon">
                             <div className="card-category">
                                 <h5>Code</h5>
-                                <br/>
+                                <br />
                                 {codeSkills.length > 0 ? (
-                                    codeSkills.map(skill => (
+                                    codeSkills.map((skill) => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
                                     ))
                                 ) : (
@@ -90,9 +90,9 @@ const SoftSkills = () => {
                             <div className="vertical-line"></div>
                             <div className="card-category">
                                 <h5>Design</h5>
-                                <br/>
+                                <br />
                                 {designSkills.length > 0 ? (
-                                    designSkills.map(skill => (
+                                    designSkills.map((skill) => (
                                         <SkillsCards skills={skill} key={skill.idSkills} />
                                     ))
                                 ) : (
@@ -102,9 +102,8 @@ const SoftSkills = () => {
                         </div>
                     </Card>
                 </Container>
-                </div>
-            </body>
-        
+            </div>
+        </body>
     );
 };
 

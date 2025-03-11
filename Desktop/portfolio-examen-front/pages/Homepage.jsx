@@ -37,7 +37,7 @@ const Homepage = () => {
       <Skills />
       <Parcours />
       <Projet />
-      <Contact id="Contact" /> {/* Ajout de l'id ici */}
+      <Contact id="Contact" />
     </div>
   );
 };

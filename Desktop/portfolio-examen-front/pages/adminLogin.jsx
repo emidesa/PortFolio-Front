@@ -1,80 +1,69 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import adminService from "../services/adminService";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const AdminLogin = () => {
-  const [Name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoginMode, setIsLoginMode] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [Name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLoginMode, setIsLoginMode] = useState(true)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
-    const token = localStorage.getItem("adminToken");
-    const isAdmin = localStorage.getItem("isAdmin");
-    if (token && isAdmin === "true" && location.pathname === "/AdminLogin") {
-      navigate("/profilPageAdmin");
+    const token = localStorage.getItem("adminToken")
+    const isAdmin = localStorage.getItem("isAdmin")
+    if (token && isAdmin === "true") {
+      navigate("/profilPageAdmin")
     }
-  }, [navigate, location]);
+  }, [navigate])
   // execution à chaque fois qu'une valeur change
 
   const handleCreateAdmin = async () => {
     if (!Name || !email || !password) {
-      alert("Tous les champs sont requis pour créer un administrateur.");
-      return;
+      alert("Tous les champs sont requis pour créer un administrateur.")
+      return
     }
 
     try {
-      const response = await adminService.createAdmin(
-        Name,
-        email,
-        password
-      );
-      alert(response.message || "Compte administrateur créé avec succès.");
-      setName("");
-      setEmail("");
-      setPassword("");
-      setIsLoginMode(true); // réactive le formulaire de connexion
+      const response = await adminService.createAdmin(Name, email, password)
+      alert(response.message || "Compte administrateur créé avec succès.")
+      setName("")
+      setEmail("")
+      setPassword("")
+      setIsLoginMode(true) // réactive le formulaire de connexion
     } catch (error) {
-      alert(
-        error.response?.data?.message ||
-          "Une erreur est survenue lors de la création."
-      );
+      alert(error.response?.data?.message || "Une erreur est survenue lors de la création.")
     }
-  };
+  }
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!email || !password) {
-      alert("Veuillez renseigner votre email et votre mot de passe.");
-      return;
+      alert("Veuillez renseigner votre email et votre mot de passe.")
+      return
     }
 
     try {
-      const response = await adminService.loginAdmin(email, password);
-      if (response.token) //réponse contien le token
-       {
-        localStorage.setItem("adminToken", response.token);
-        localStorage.setItem("isAdmin", "true");
-        localStorage.setItem("adminUser", JSON.stringify(response.user || {}));
-        navigate("/profilPageAdmin");
+      const response = await adminService.loginAdmin(email, password)
+      if (response.token) {
+        localStorage.setItem("adminToken", response.token)
+        localStorage.setItem("isAdmin", "true")
+        localStorage.setItem("adminUser", JSON.stringify(response.user || {}))
+        navigate("/profilPageAdmin")
       } else {
-        alert("Erreur de connexion: Aucun token trouvé.");
+        alert("Erreur de connexion: Aucun token trouvé.")
       }
     } catch (error) {
-      alert(
-        error.response?.data?.message ||
-          "Une erreur est survenue lors de la connexion."
-      );
+      alert(error.response?.data?.message || "Une erreur est survenue lors de la connexion.")
     }
-  };
+  }
 
   return (
     <div
       style={{
-        position : "relative",
+        position: "relative",
         fontFamily: "Arial, sans-serif",
         backgroundColor: "#f3f4f6",
         minHeight: "100vh",
@@ -94,9 +83,7 @@ const AdminLogin = () => {
           width: "100%",
         }}
       >
-        <h1 style={{ textAlign: "center", fontSize: "1.5rem", color: "#333" }}>
-          Gestion des administrateurs
-        </h1>
+        <h1 style={{ textAlign: "center", fontSize: "1.5rem", color: "#333" }}>Gestion des administrateurs</h1>
 
         {isLoginMode ? (
           <form onSubmit={handleLogin}>
@@ -156,9 +143,7 @@ const AdminLogin = () => {
           </form>
         ) : (
           <div>
-            <h2 style={{ fontSize: "1.2rem", color: "#555" }}>
-              Créer un administrateur
-            </h2>
+            <h2 style={{ fontSize: "1.2rem", color: "#555" }}>Créer un administrateur</h2>
             <input
               type="text"
               placeholder="Nom d'utilisateur"
@@ -226,7 +211,8 @@ const AdminLogin = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AdminLogin;
+export default AdminLogin
+

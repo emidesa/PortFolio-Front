@@ -160,9 +160,8 @@
         flex-direction: column;
         gap: 2rem;
         justify-content: center; /* Centrer les cartes */
-        margin-right: 0;
         align-items: center; /* Centrer horizontalement */
-        margin-right: 45vw;
+        margin-right: 23vw;
 
     }
     
@@ -181,12 +180,12 @@
         align-items: center; /* Centrer les icônes */
         display: flex;
         justify-content: center; /* Centrer les icônes */
-        width: 70vw; 
+        width: 50vw; 
     }
 
 
-    .card-header {
-        width: 70vw;
+    .card-head {
+        width: 50vw;
         text-align: center; /* Centrer le texte dans l'en-tête */
     }
 
@@ -218,7 +217,7 @@
     }
 
     .skills-image {
-        width: 15vw !important;
+        width: 10vw !important;
         height: auto;
              
     }

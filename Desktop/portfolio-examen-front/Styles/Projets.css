@@ -123,9 +123,19 @@
   }
 
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuster la largeur des cartes */
+    gap: 1rem; /* Réduire l'espace entre les cartes */
   }
+
+  .project-card {
+    width: 100%; /* Prendre toute la largeur */
+  }
+
+  .project-button {
+    width: 100%; /* Prendre toute la largeur */
+    text-align: center; /* Centrer le texte */
+  }
+
 
   .project-image {
     height: 180px;
@@ -139,10 +149,6 @@
     font-size: 1.1rem;
   }
 
-  .project-button {
-    width: 100%;
-    padding: 0.5rem 1rem !important;
-  }
 }
 
 @media screen and (max-width: 480px) {
@@ -151,13 +157,12 @@
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem; /* Ajout d'un peu d'espace entre les cartes */
+    grid-template-columns: 1fr; /* Une seule colonne sur les très petits écrans */
   }
 
   .project-card {
+    width: 90%; /* Ajuster la largeur */
     margin: 0 auto; /* Centrer les cartes */
-    width: 90vw; /* Largeur plus grande sur les petits écrans */
   }
 
   .project-image {

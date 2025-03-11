@@ -131,6 +131,7 @@
   text-align: center;
   margin-top: 50px;
   border-top: 2px solid #ff6b6b;
+  position: relative;
 }
 
 .footer-content {
@@ -204,73 +205,105 @@
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-  /* Ajuster le titre */
-  .contact-h2 {
-    font-size: 1rem;
-  }
-
-  .contact-title {
-    font-size: 1.2rem;
-  }
-
-  /* Adapter les boutons */
   .buttons {
-    flex-direction: column;
-    gap: 2vw;
-    align-items: center;
+    flex-direction: column; /* Aligner les boutons verticalement */
+    gap: 20px; /* Espacement entre les boutons */
+    align-items: center; /* Centrer les boutons */
   }
 
   .button {
-    width: 50vw;
-    height: 25vh;
+    width: 50%; /* Réduire la largeur des boutons */
+    height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    padding: 15px; /* Réduire le padding */
+    margin-left: 0; /* Supprimer la marge gauche */
   }
 
-  /* Ajuster le formulaire */
+  .button-form {
+    flex-direction: column; /* Aligner le contenu des boutons verticalement */
+    align-items: center; /* Centrer le contenu */
+  }
+
+  .icon {
+    font-size: 1.5rem; /* Réduire la taille des icônes */
+  }
   .contact-form {
-    margin-left: 0;
-    width: 90%;
-    margin-top: 20px;
+    width: 70%; /* Réduire la largeur du formulaire */
+    margin-left: 0; /* Supprimer la marge gauche */
+    margin-top: 20px; /* Espacement au-dessus du formulaire */
+    padding: 15px; /* Réduire le padding */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 8px; /* Réduire le padding des champs de formulaire */
   }
 
   .contact-form button {
-    width: 100%;
-    padding: 12px;
+    width: 100%; /* Prendre toute la largeur */
+    padding: 10px; /* Réduire le padding du bouton */
+  }
+  .contact-footer {
+    padding: 1rem; /* Réduire le padding */
   }
 
-  /* Footer */
-  .contact-footer {
-    padding: 1rem;
+  .footer-content {
+    flex-direction: column; /* Aligner les sections verticalement */
+    gap: 1rem; /* Espacement entre les sections */
   }
+
+  .footer-section {
+    min-width: 100%; /* Prendre toute la largeur */
+    text-align: center; /* Centrer le texte */
+  }
+
+  .footer-links {
+    gap: 5px; /* Réduire l'espacement entre les liens */
+  }
+
+  .social-icons {
+    gap: 10px; /* Réduire l'espacement entre les icônes */
+  }
+
+  .footer-bottom {
+    margin-top: 0.5rem; /* Réduire l'espacement */
+    padding-top: 0.5rem; /* Réduire le padding */
+  }
+
+  .copyright {
+    font-size: 0.8rem; /* Réduire la taille du texte */
+  }
+  .contact-h2 {
+    font-size: 1.5rem; /* Réduire la taille du titre principal */
+  }
+
+  .contact-h2::after {
+    width: 20%; /* Ajuster la largeur de la ligne sous le titre */
+  }
+
+  .contact-title {
+    font-size: 1.2rem; /* Réduire la taille du sous-titre */
+  }
+
+
 }
 
 @media screen and (max-width: 480px) {
-  /* Ajuster la taille du texte dans la card */
   .button {
-    font-size: 1rem; /* Réduire la taille du texte dans les boutons */
+    width: 90%; /* Prendre presque toute la largeur */
+    padding: 10px; /* Réduire le padding */
   }
 
-  /* Adapter le formulaire */
+  .icon {
+    font-size: 1.2rem; /* Réduire la taille des icônes */
+  }
+
   .contact-form {
-    width: 100%;
-    margin-left: 0;
+    width: 100%; /* Prendre toute la largeur */
+    padding: 10px; /* Réduire le padding */
   }
 
-  .contact-footer {
-    padding: 0.75rem;
-  }
-
-  /* Réduire la taille du texte des éléments dans la card */
-  .button-form .icon {
-    font-size: 1.5rem; /* Réduire l'icône */
-  }
-
-  .contact-title {
-    font-size: 1rem; /* Réduire le titre du formulaire */
-  }
-
-  /* Ajuster la taille du texte du bouton */
   .contact-form button {
-    font-size: 1rem; /* Réduire la taille du texte du bouton dans le formulaire */
-    padding: 12px;
+    font-size: 0.9rem; /* Réduire la taille du texte du bouton */
+    padding: 8px; /* Réduire le padding */
   }
 }

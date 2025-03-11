@@ -23,8 +23,8 @@ const ParcoursPage = () => {
 
   // Filtrer les parcours en fonction de la catégorie
   const filteredParcours = parcours.filter(item => {
-    if (filter === 'tous') return true; // Afficher tout si 'tous' est sélectionné
-    return item.categorie.toLowerCase() === filter; // Comparer avec la catégorie
+    if (filter === 'tous') return true; 
+    return item.categorie.toLowerCase() === filter; 
   });
 
   return (

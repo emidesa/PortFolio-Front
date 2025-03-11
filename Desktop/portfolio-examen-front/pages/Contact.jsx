@@ -36,6 +36,13 @@ const Contact = () => {
     }
   };
 
+  const handleScroll = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <div className="contact-container">
       <main className="contact-content" id="Contact">
@@ -119,21 +126,23 @@ const Contact = () => {
   <div className="footer-content">
     {/* Section 1 : À propos */}
     <div className="footer-section">
-      <h3 className="footer-title">À propos</h3>
+      <h3 className="footer-title"></h3>
       <nav className="footer-links">
-        <a href="/Apropos">Qui suis-je ?</a>
-        <a href="#">Mes projets</a>
-        <a href="#">Contact</a>
-      </nav>
-    </div>
-
-    {/* Section 2 : Liens utiles */}
-    <div className="footer-section">
-      <h3 className="footer-title">Liens utiles</h3>
-      <nav className="footer-links">
-        <a href="#">Mentions légales</a>
-        <a href="#">Politique de confidentialité</a>
-        <a href="#">FAQ</a>
+        <a href="#About Me" onClick={() => handleScroll("About Me")} className="footer-link">
+          Qui suis-je ?
+        </a>
+        <a href="#Skills" onClick={() => handleScroll("Skills")} className="footer-link">
+          Skills
+        </a>
+        <a href="#Parcours" onClick={() => handleScroll("Parcours")} className="footer-link">
+          Mon parcours
+        </a>
+        <a href="#Projets" onClick={() => handleScroll("Projets")} className="footer-link">
+          Mes projets
+        </a>
+        <a href="#Contact" onClick={() => handleScroll("Contact")} className="footer-link">
+          Contact
+        </a>
       </nav>
     </div>
 
@@ -141,14 +150,14 @@ const Contact = () => {
     <div className="footer-section">
       <h3 className="footer-title">Suivez-moi</h3>
       <div className="social-icons">
-        <a href="#" className="social-icon">
+        <a href="https://www.linkedin.com/in/emeline-de-sa/" target="_blank" rel="noopener noreferrer" className="social-icon">
           <FaLinkedin size={24} />
         </a>
-        <a href="#" className="social-icon">
+        <a href="https://github.com/emidesa" target="_blank" rel="noopener noreferrer" className="social-icon">
           <FaGithub size={24} />
         </a>
-        <a href="#" className="social-icon">
-          <FaTwitter size={24} />
+        <a href="mailto:Emeline.desa@outlook.fr" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <FaEnvelope size={24} />
         </a>
       </div>
     </div>

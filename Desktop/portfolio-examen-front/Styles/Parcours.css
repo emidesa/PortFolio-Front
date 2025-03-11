@@ -142,39 +142,37 @@
         font-size: 1.4rem; /* Ajuste la taille du sous-titre */
     }
 
-    /* Filter Buttons */
     .filter-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 30px;
-    }
+        flex-direction: column; /* Aligner les boutons verticalement */
+        align-items: center; /* Centrer les boutons */
+        gap: 10px; /* Réduire l'espace entre les boutons */
+      }
+    
+      .cards-container-parcours {
+        justify-content: center; /* Centrer les cartes */
+        gap: 20px; /* Réduire l'espace entre les cartes */
+      }
+    
+      .parcours-card {
+        width: 50%; /* Ajuster la largeur des cartes */
+      }
+
 
     .filter-button {
         font-size: 1rem; /* Réduit la taille des boutons pour les petits écrans */
         padding: 6px 18px;
     }
 
-    /* Container des cartes */
-    .cards-container-parcours {
-        justify-content: center;
-        padding: 10px;
-        gap: 20px;
-    }
-
-    /* Cartes */
-    .parcours-card {
-        width: 90vw; /* Ajuste la largeur des cartes en fonction de l'écran */
-        margin-bottom: 20px; /* Ajoute un espace entre les cartes */
-    }
 
     /* Style de la carte */
     .parcours-card .card-header {
         padding: 15px;
+        font-size: 1rem;
+        justify-content: center;
     }
 
     .parcours-card .card-title {
-        font-size: 1.2rem; /* Ajuste la taille du titre de la carte */
+        font-size: 1rem; /* Ajuste la taille du titre de la carte */
     }
 
     .parcours-card .card-body {
@@ -211,9 +209,8 @@
     }
 
     .parcours-card {
-        width: 70vw; /* Carte encore plus large sur les écrans très petits */
-        margin-bottom: 10px;
-    }
+        width: 90%; /* Ajuster la largeur des cartes pour les très petits écrans */
+      }
 
     .parcours-card .card-title {
         font-size: 1rem; /* Ajuste la taille du titre pour les très petits écrans */

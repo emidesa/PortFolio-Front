@@ -35,7 +35,7 @@ const SoftSkills = () => {
             <div className="cards-container">
                 <Container>
                     <Card className="container-left">
-                        <CardHeader className="card-header">
+                        <CardHeader className="card-head">
                             <div className="card-title">
                                 <p>Développement web</p>
                             </div>
@@ -70,7 +70,7 @@ const SoftSkills = () => {
 
                 <Container className="container-right">
                     <Card>
-                        <CardHeader className="card-header">
+                        <CardHeader className="card-head">
                             <div className="card-title">
                                 <p>Outils de conception</p>
                             </div>

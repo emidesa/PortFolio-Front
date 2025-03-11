@@ -34,9 +34,7 @@ const PageProfilAdmin = () => {
     fetchData()
   }, [navigate])
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  //Removed second useEffect hook
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken")
@@ -236,8 +234,8 @@ const PageProfilAdmin = () => {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
-                value={currentItem.description || ""}
-                onChange={(e) => setCurrentItem({ ...currentItem, description: e.target.value })}
+                value={currentItem.Description || ""}
+                onChange={(e) => setCurrentItem({ ...currentItem, Description: e.target.value })}
               />
             </Form.Group>
             <Form.Group>
@@ -349,12 +347,12 @@ const PageProfilAdmin = () => {
   return (
     <Container className="admin-container">
       <div className="d-flex justify-content-end">
-  <Button variant="danger" className="mb-3" onClick={handleLogout}>
-    Déconnexion
-  </Button>
-</div>
+        <Button variant="danger" className="mb-3" onClick={handleLogout}>
+          Déconnexion
+        </Button>
+      </div>
       <h1 className="admin-title">Administration du Portfolio</h1>
-      
+
       <Tabs id="admin-tabs" activeKey={key} onSelect={(k) => setKey(k)} className="mb-3">
         <Tab eventKey="parcours" title="Parcours">
           <h2>Gestion du Parcours</h2>
@@ -413,10 +411,9 @@ const PageProfilAdmin = () => {
               </>
             ),
           )}
-          
         </Tab>
       </Tabs>
-      
+
       {(key === "parcours" || key === "skills" || key === "projets") && (
         <Button variant="primary" className="mt-3" onClick={handleAdd}>
           Ajouter un nouvel élément
